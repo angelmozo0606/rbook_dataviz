@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>EDA - Cálculos Biliares</title>
+  <meta name="description" content="EDA - Cálculos Biliares" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="EDA - Cálculos Biliares" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="EDA - Cálculos Biliares" />
+  
+  
+  
+
+<meta name="author" content="Angel Mozo, Paula Gomez, Camilo Gonzalez" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#contexto-del-conjunto-de-datos-de-enfermedad-de-cálculos-biliares-gallstone"><i class="fa fa-check"></i><b>1</b> <strong>Contexto del conjunto de datos de enfermedad de cálculos biliares (Gallstone)</strong></a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#extracción-transformación-y-carga-etl"><i class="fa fa-check"></i><b>2</b> <strong>Extracción, transformación y carga (ETL)</strong></a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#análisis-de-correlación-de-variables-numéricas"><i class="fa fa-check"></i><b>3</b> Análisis de correlación de variables numéricas</a></li>
+<li class="chapter" data-level="4" data-path=""><a href="#análisis-bivariado"><i class="fa fa-check"></i><b>4</b> Análisis bivariado</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path=""><a href="#numérica-vs-categórica-edad-vs-diagnosis"><i class="fa fa-check"></i><b>4.1</b> Numérica vs Categórica (edad vs diagnosis)</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path=""><a href="#conclusiones"><i class="fa fa-check"></i><b>5</b> Conclusiones</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">EDA - Cálculos Biliares</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">EDA - Cálculos Biliares</h1>
+<p class="author"><em>Angel Mozo, Paula Gomez, Camilo Gonzalez</em></p>
+</div>
+<div id="contexto-del-conjunto-de-datos-de-enfermedad-de-cálculos-biliares-gallstone" class="section level2 hasAnchor" number="1">
+<h2><span class="header-section-number">1</span> <strong>Contexto del conjunto de datos de enfermedad de cálculos biliares (Gallstone)</strong><a href="#contexto-del-conjunto-de-datos-de-enfermedad-de-cálculos-biliares-gallstone" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Este conjunto de datos corresponde a un estudio clínico llevada a cabo entre junio de 2022 y junio de 2023, con la finalidad de detectar factores asociados a la presencia de colelitiasis (enfermedad de cálculos biliares) en pacientes que asistieron al centro médico. La recolección de datos variables clínicas, demográficas, fisiológicas y bioquímicas, con el objetivo de desarrollar modelos capaces de predecir la presencia de esta patología.</p>
+<p>El conjunto incluye 319 observaciones y 38 variables, que abarcan información como la edad, el género, el índice de masa corporal (IMC), mediciones de bioimpedancia, resultados de laboratorio (colesterol, glucosa, triglicéridos, etc.), y niveles de vitamina D, entre otros aspectos. Además se incorpora una variable binaria que señala si el paciente fue o no diagnosticado con cálculos biliares.</p>
+<p>A continuación resaltamos las variables con mayor relevancia:</p>
+<ul>
+<li><strong>age</strong>: Edad del paciente (en años).</li>
+<li><strong>sex</strong>: Sexo del paciente (masculino/femenino).</li>
+<li><strong>height, weight</strong>: Altura (cm) y peso (kg).</li>
+<li><strong>BMI</strong>: Índice de masa corporal.</li>
+<li><strong>fat_mass, muscle_mass</strong>: Masa grasa y masa muscular.</li>
+<li><strong>visceral_fat_area</strong>: Área de grasa visceral.</li>
+<li><strong>total_body_water</strong>: Porcentaje de agua corporal.</li>
+<li><strong>protein</strong>: Porcentaje de proteína corporal.</li>
+<li><strong>glucose</strong>: Nivel de glucosa.</li>
+<li><strong>cholesterol_total, HDL, LDL, triglycerides</strong>: Perfil lipídico.</li>
+<li><strong>AST, ALT, ALP</strong>: Enzimas hepáticas.</li>
+<li><strong>vitamin_D</strong>: Nivel de vitamina D.</li>
+<li><strong>creatinine, eGFR</strong>: Función renal.</li>
+<li><strong>CRP</strong>: Proteína C-reactiva.</li>
+<li><strong>comorbidity</strong>: Presencia de enfermedades adicionales.</li>
+<li><strong>diagnosis</strong>: Variable objetivo (presencia de cálculos biliares: 1 = sí, 0 = no).</li>
+</ul>
+<p>El objetivo principal es analizar qué variables están vinculadas con la presencia de cálculos biliares (diagnosis), con el fin de elaborar modelos predictivos que apoyen el diagnóstico clínico precoz. Este análisis exploratorio de datos permitirá entender la distribución de las variables, la identificación de posibles patrones y con ello la relación entre la condición de los pacientes y el diagnóstico de colelitiasis.</p>
+<p>Iniciemos realizando un análisis exploratorio de datos.</p>
+</div>
+<div id="extracción-transformación-y-carga-etl" class="section level2 hasAnchor" number="2">
+<h2><span class="header-section-number">2</span> <strong>Extracción, transformación y carga (ETL)</strong><a href="#extracción-transformación-y-carga-etl" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">&quot;https://raw.githubusercontent.com/apaulag24/Metodos/refs/heads/main/Gallstone.csv&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(url, <span class="at">sep =</span> <span class="st">&quot;,&quot;</span>, <span class="at">stringsAsFactors =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="fu">head</span>(datos,<span class="at">n=</span><span class="dv">5</span>)</span></code></pre></div>
+<pre><code>##   Gallstone.Status Age Gender Comorbidity Coronary.Artery.Disease..CAD.
+## 1                0  50      0           0                             0
+## 2                0  47      0           1                             0
+## 3                0  61      0           0                             0
+## 4                0  41      0           0                             0
+## 5                0  42      0           0                             0
+##   Hypothyroidism Hyperlipidemia Diabetes.Mellitus..DM. Height Weight
+## 1              0              0                      0    185   92.8
+## 2              0              0                      0    176   94.5
+## 3              0              0                      0    171   91.1
+## 4              0              0                      0    168   67.7
+## 5              0              0                      0    178   89.6
+##   Body.Mass.Index..BMI. Total.Body.Water..TBW. Extracellular.Water..ECW.
+## 1                  27.1                   52.9                      21.2
+## 2                  30.5                   43.1                      19.5
+## 3                  31.2                   47.2                      20.1
+## 4                  24.0                   41.4                      17.0
+## 5                  28.3                   51.4                      20.0
+##   Intracellular.Water..ICW. Extracellular.Fluid.Total.Body.Water..ECF.TBW.
+## 1                      31.7                                             40
+## 2                      23.6                                             45
+## 3                      27.1                                             43
+## 4                      24.4                                             41
+## 5                      31.4                                             39
+##   Total.Body.Fat.Ratio..TBFR..... Lean.Mass..LM.....
+## 1                            19.2              80.84
+## 2                            32.8              67.20
+## 3                            27.3              72.67
+## 4                            15.8              84.19
+## 5                            20.0              80.02
+##   Body.Protein.Content..Protein..... Visceral.Fat.Rating..VFR. Bone.Mass..BM.
+## 1                              18.88                         9            3.7
+## 2                              16.68                        15            3.2
+## 3                              16.35                        15            3.3
+## 4                              16.90                         6            2.9
+## 5                              16.81                         8            3.5
+##   Muscle.Mass..MM. Obesity.... Total.Fat.Content..TFC. Visceral.Fat.Area..VFA.
+## 1             71.4        23.4                    17.8                    10.6
+## 2             60.3        38.8                    31.0                    18.4
+## 3             62.9        41.7                    24.9                    16.2
+## 4             54.1         9.0                    10.7                     6.5
+## 5             68.2        28.6                    17.9                    10.4
+##   Visceral.Muscle.Area..VMA...Kg. Hepatic.Fat.Accumulation..HFA. Glucose
+## 1                            39.7                              0     102
+## 2                            32.7                              0      94
+## 3                            34.0                              0     103
+## 4                            29.2                              1      69
+## 5                            37.4                              2     109
+##   Total.Cholesterol..TC. Low.Density.Lipoprotein..LDL.
+## 1                    250                           175
+## 2                    172                           108
+## 3                    179                           124
+## 4                    173                            73
+## 5                    205                           154
+##   High.Density.Lipoprotein..HDL. Triglyceride Aspartat.Aminotransferaz..AST.
+## 1                             40          134                             20
+## 2                             43          103                             14
+## 3                             43           69                             18
+## 4                             59           53                             20
+## 5                             30          326                             27
+##   Alanin.Aminotransferaz..ALT. Alkaline.Phosphatase..ALP. Creatinine
+## 1                           22                         87       0.82
+## 2                           13                         46       0.87
+## 3                           14                         66       1.25
+## 4                           12                         34       1.02
+## 5                           54                         71       0.82
+##   Glomerular.Filtration.Rate..GFR. C.Reactive.Protein..CRP. Hemoglobin..HGB.
+## 1                           112.47                        0             16.0
+## 2                           107.10                        0             14.4
+## 3                            65.51                        0             16.2
+## 4                            94.10                        0             15.4
+## 5                           112.47                        0             16.8
+##   Vitamin.D
+## 1      33.0
+## 2      25.0
+## 3      30.2
+## 4      35.4
+## 5      40.6</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">dim</span>(datos)</span></code></pre></div>
+<pre><code>## [1] 319  39</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">colnames</span>(datos) <span class="co">#galstone status no es una variable</span></span></code></pre></div>
+<pre><code>##  [1] &quot;Gallstone.Status&quot;                              
+##  [2] &quot;Age&quot;                                           
+##  [3] &quot;Gender&quot;                                        
+##  [4] &quot;Comorbidity&quot;                                   
+##  [5] &quot;Coronary.Artery.Disease..CAD.&quot;                 
+##  [6] &quot;Hypothyroidism&quot;                                
+##  [7] &quot;Hyperlipidemia&quot;                                
+##  [8] &quot;Diabetes.Mellitus..DM.&quot;                        
+##  [9] &quot;Height&quot;                                        
+## [10] &quot;Weight&quot;                                        
+## [11] &quot;Body.Mass.Index..BMI.&quot;                         
+## [12] &quot;Total.Body.Water..TBW.&quot;                        
+## [13] &quot;Extracellular.Water..ECW.&quot;                     
+## [14] &quot;Intracellular.Water..ICW.&quot;                     
+## [15] &quot;Extracellular.Fluid.Total.Body.Water..ECF.TBW.&quot;
+## [16] &quot;Total.Body.Fat.Ratio..TBFR.....&quot;               
+## [17] &quot;Lean.Mass..LM.....&quot;                            
+## [18] &quot;Body.Protein.Content..Protein.....&quot;            
+## [19] &quot;Visceral.Fat.Rating..VFR.&quot;                     
+## [20] &quot;Bone.Mass..BM.&quot;                                
+## [21] &quot;Muscle.Mass..MM.&quot;                              
+## [22] &quot;Obesity....&quot;                                   
+## [23] &quot;Total.Fat.Content..TFC.&quot;                       
+## [24] &quot;Visceral.Fat.Area..VFA.&quot;                       
+## [25] &quot;Visceral.Muscle.Area..VMA...Kg.&quot;               
+## [26] &quot;Hepatic.Fat.Accumulation..HFA.&quot;                
+## [27] &quot;Glucose&quot;                                       
+## [28] &quot;Total.Cholesterol..TC.&quot;                        
+## [29] &quot;Low.Density.Lipoprotein..LDL.&quot;                 
+## [30] &quot;High.Density.Lipoprotein..HDL.&quot;                
+## [31] &quot;Triglyceride&quot;                                  
+## [32] &quot;Aspartat.Aminotransferaz..AST.&quot;                
+## [33] &quot;Alanin.Aminotransferaz..ALT.&quot;                  
+## [34] &quot;Alkaline.Phosphatase..ALP.&quot;                    
+## [35] &quot;Creatinine&quot;                                    
+## [36] &quot;Glomerular.Filtration.Rate..GFR.&quot;              
+## [37] &quot;C.Reactive.Protein..CRP.&quot;                      
+## [38] &quot;Hemoglobin..HGB.&quot;                              
+## [39] &quot;Vitamin.D&quot;</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="fu">str</span>(datos)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    319 obs. of  39 variables:
+##  $ Gallstone.Status                              : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Age                                           : int  50 47 61 41 42 96 37 41 38 38 ...
+##  $ Gender                                        : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Comorbidity                                   : int  0 1 0 0 0 0 0 0 0 0 ...
+##  $ Coronary.Artery.Disease..CAD.                 : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Hypothyroidism                                : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Hyperlipidemia                                : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Diabetes.Mellitus..DM.                        : int  0 0 0 0 0 0 0 0 0 0 ...
+##  $ Height                                        : int  185 176 171 168 178 155 185 176 186 171 ...
+##  $ Weight                                        : num  92.8 94.5 91.1 67.7 89.6 49 67.1 114 93.7 68.6 ...
+##  $ Body.Mass.Index..BMI.                         : num  27.1 30.5 31.2 24 28.3 20.4 19.6 36.8 27.1 23.5 ...
+##  $ Total.Body.Water..TBW.                        : num  52.9 43.1 47.2 41.4 51.4 34 41.8 57.6 51.9 39.5 ...
+##  $ Extracellular.Water..ECW.                     : num  21.2 19.5 20.1 17 20 15.7 17.1 23.5 20.9 16.6 ...
+##  $ Intracellular.Water..ICW.                     : num  31.7 23.6 27.1 24.4 31.4 18.3 24.7 34.1 31 22.9 ...
+##  $ Extracellular.Fluid.Total.Body.Water..ECF.TBW.: num  40 45 43 41 39 46 41 41 40 42 ...
+##  $ Total.Body.Fat.Ratio..TBFR.....               : num  19.2 32.8 27.3 15.8 20 6.3 11.3 31.8 21.5 19.2 ...
+##  $ Lean.Mass..LM.....                            : num  80.8 67.2 72.7 84.2 80 ...
+##  $ Body.Protein.Content..Protein.....            : num  18.9 16.7 16.4 16.9 16.8 ...
+##  $ Visceral.Fat.Rating..VFR.                     : int  9 15 15 6 8 12 3 16 8 6 ...
+##  $ Bone.Mass..BM.                                : num  3.7 3.2 3.3 2.9 3.5 2.4 3 3.8 3.6 2.8 ...
+##  $ Muscle.Mass..MM.                              : num  71.4 60.3 62.9 54.1 68.2 43.5 56.5 73.9 70 52.6 ...
+##  $ Obesity....                                   : num  23.4 38.8 41.7 9 28.6 7.4 10.9 67.4 23.1 6.7 ...
+##  $ Total.Fat.Content..TFC.                       : num  17.8 31 24.9 10.7 17.9 3.1 7.6 36.3 20.1 13.2 ...
+##  $ Visceral.Fat.Area..VFA.                       : num  10.6 18.4 16.2 6.5 10.4 0.9 4.6 23.7 12.7 8.2 ...
+##  $ Visceral.Muscle.Area..VMA...Kg.               : num  39.7 32.7 34 29.2 37.4 25.9 31.4 37.5 37.8 28.8 ...
+##  $ Hepatic.Fat.Accumulation..HFA.                : int  0 0 0 1 2 0 0 3 2 0 ...
+##  $ Glucose                                       : num  102 94 103 69 109 74 94 125 93 93 ...
+##  $ Total.Cholesterol..TC.                        : num  250 172 179 173 205 133 166 246 290 239 ...
+##  $ Low.Density.Lipoprotein..LDL.                 : num  175 108 124 73 154 ...
+##  $ High.Density.Lipoprotein..HDL.                : num  40 43 43 59 30 30 40 34 33 43 ...
+##  $ Triglyceride                                  : num  134 103 69 53 326 65 60 464 679 129 ...
+##  $ Aspartat.Aminotransferaz..AST.                : num  20 14 18 20 27 13 15 26 68 19 ...
+##  $ Alanin.Aminotransferaz..ALT.                  : num  22 13 14 12 54 13 14 28 102 34 ...
+##  $ Alkaline.Phosphatase..ALP.                    : num  87 46 66 34 71 60 72 69 70 75 ...
+##  $ Creatinine                                    : num  0.82 0.87 1.25 1.02 0.82 1.46 0.77 1.3 0.91 0.91 ...
+##  $ Glomerular.Filtration.Rate..GFR.              : num  112.5 107.1 65.5 94.1 112.5 ...
+##  $ C.Reactive.Protein..CRP.                      : num  0 0 0 0 0 0 0 0.11 1.57 0 ...
+##  $ Hemoglobin..HGB.                              : num  16 14.4 16.2 15.4 16.8 11 13.8 16.5 16.5 16.6 ...
+##  $ Vitamin.D                                     : num  33 25 30.2 35.4 40.6 45.8 20 24.5 22.7 15.6 ...</code></pre>
+<p>Notamos que los datos fueron cargados correctamente.</p>
+<ul>
+<li>Considerando que hay variables que se derivan de otras primarias, para facilitar el análisis exploratorio y evitar redundancias o ruido en el modelo, se eliminarán las variables que presenten correlación numérica positiva mayor de 0.85.*</li>
+</ul>
+</div>
+<div id="análisis-de-correlación-de-variables-numéricas" class="section level2 hasAnchor" number="3">
+<h2><span class="header-section-number">3</span> Análisis de correlación de variables numéricas<a href="#análisis-de-correlación-de-variables-numéricas" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="co"># Filtrado de variables numéricas</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>datos_num <span class="ot">&lt;-</span> datos[<span class="fu">sapply</span>(datos, is.numeric)]</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>datos_num <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(datos_num)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co"># Subconjunto para análisis de correlación</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>subconjunto <span class="ot">&lt;-</span> datos_num[, <span class="fu">c</span>(<span class="st">&quot;Body.Mass.Index..BMI.&quot;</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>                             <span class="st">&quot;Total.Body.Fat.Ratio..TBFR.....&quot;</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>                             <span class="st">&quot;Weight&quot;</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a>                             <span class="st">&quot;Muscle.Mass..MM.&quot;</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a>                             <span class="st">&quot;Total.Body.Water..TBW.&quot;</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>                             <span class="st">&quot;Body.Protein.Content..Protein.....&quot;</span>)]</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a><span class="co"># Visualización de correlaciones</span></span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a><span class="fu">pairs.panels</span>(subconjunto,</span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>             <span class="at">hist.col =</span> <span class="st">&quot;#00BFC4&quot;</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a>             <span class="at">density =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>             <span class="at">ellipses =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/correlacion-1.png" width="672" /></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># Matriz de correlación completa</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a>cor_matrix <span class="ot">&lt;-</span> <span class="fu">cor</span>(datos_num)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co"># Buscar correlaciones fuertes (r &gt; 0.85, excluyendo la diagonal)</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>high_cor <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">abs</span>(cor_matrix) <span class="sc">&gt;</span> <span class="fl">0.85</span> <span class="sc">&amp;</span> <span class="fu">abs</span>(cor_matrix) <span class="sc">&lt;</span> <span class="dv">1</span>, <span class="at">arr.ind =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Pares de variables con correlación alta (r &gt; 0.85):</span><span class="sc">\n\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<pre><code>## Pares de variables con correlación alta (r &gt; 0.85):</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_len</span>(<span class="fu">nrow</span>(high_cor))) {</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>  var1 <span class="ot">&lt;-</span> <span class="fu">rownames</span>(cor_matrix)[high_cor[i, <span class="dv">1</span>]]</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  var2 <span class="ot">&lt;-</span> <span class="fu">colnames</span>(cor_matrix)[high_cor[i, <span class="dv">2</span>]]</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">round</span>(cor_matrix[var1, var2], <span class="dv">2</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">&quot;- &quot;</span>, var1, <span class="st">&quot; vs &quot;</span>, var2, <span class="st">&quot;: r = &quot;</span>, r, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>}</span></code></pre></div>
+<pre><code>## - Visceral.Fat.Area..VFA. vs Weight: r = 0.88
+## - Total.Fat.Content..TFC. vs Body.Mass.Index..BMI.: r = 0.9
+## - Extracellular.Water..ECW. vs Total.Body.Water..TBW.: r = 0.9
+## - Muscle.Mass..MM. vs Total.Body.Water..TBW.: r = 0.93
+## - Total.Body.Water..TBW. vs Extracellular.Water..ECW.: r = 0.9
+## - Muscle.Mass..MM. vs Extracellular.Water..ECW.: r = 0.87
+## - Muscle.Mass..MM. vs Intracellular.Water..ICW.: r = 0.9
+## - Lean.Mass..LM..... vs Total.Body.Fat.Ratio..TBFR.....: r = -0.99
+## - Total.Fat.Content..TFC. vs Total.Body.Fat.Ratio..TBFR.....: r = 0.87
+## - Total.Body.Fat.Ratio..TBFR..... vs Lean.Mass..LM.....: r = -0.99
+## - Total.Fat.Content..TFC. vs Lean.Mass..LM.....: r = -0.86
+## - Total.Body.Water..TBW. vs Muscle.Mass..MM.: r = 0.93
+## - Extracellular.Water..ECW. vs Muscle.Mass..MM.: r = 0.87
+## - Intracellular.Water..ICW. vs Muscle.Mass..MM.: r = 0.9
+## - Visceral.Muscle.Area..VMA...Kg. vs Muscle.Mass..MM.: r = 0.86
+## - Body.Mass.Index..BMI. vs Total.Fat.Content..TFC.: r = 0.9
+## - Total.Body.Fat.Ratio..TBFR..... vs Total.Fat.Content..TFC.: r = 0.87
+## - Lean.Mass..LM..... vs Total.Fat.Content..TFC.: r = -0.86
+## - Visceral.Fat.Area..VFA. vs Total.Fat.Content..TFC.: r = 0.87
+## - Weight vs Visceral.Fat.Area..VFA.: r = 0.88
+## - Total.Fat.Content..TFC. vs Visceral.Fat.Area..VFA.: r = 0.87
+## - Muscle.Mass..MM. vs Visceral.Muscle.Area..VMA...Kg.: r = 0.86
+## - Low.Density.Lipoprotein..LDL. vs Total.Cholesterol..TC.: r = 0.87
+## - Total.Cholesterol..TC. vs Low.Density.Lipoprotein..LDL.: r = 0.87
+## - Alanin.Aminotransferaz..ALT. vs Aspartat.Aminotransferaz..AST.: r = 0.85
+## - Aspartat.Aminotransferaz..AST. vs Alanin.Aminotransferaz..ALT.: r = 0.85</code></pre>
+<p>A partir de las correlaciones encontradas, recomendamos eliminar algunas variables:</p>
+<p>Muscle.Mass..MM. y Total.Body.Fat.Ratio..TBFR….. presentan alta colinealidad con otras variables.</p>
+<p>Weight y Total.Body.Water..TBW. también se correlacionan fuerte con otras.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># Eliminación de variables redundantes</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>df <span class="ot">&lt;-</span> datos <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Muscle.Mass..MM.,</span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>         <span class="sc">-</span>Total.Body.Fat.Ratio..TBFR.....)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="co"># Frecuencia absoluta y relativa de diagnosis</span></span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>diagnosis)</span></code></pre></div>
+<pre><code>## &lt; table of extent 0 &gt;</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>diagnosis))</span></code></pre></div>
+<pre><code>## numeric(0)</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="co"># Gráfico de barras</span></span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Gallstone.Status, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Sin calculos&quot;</span>, <span class="st">&quot;Con calculos&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;#00BFC4&quot;</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">&quot;Diagnostico&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frecuencia&quot;</span>, <span class="at">title =</span> <span class="st">&quot;Distribucion de diagnostico&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="co"># Ejemplo con sexo</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>Gender)</span></code></pre></div>
+<pre><code>## 
+##   0   1 
+## 162 157</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(df<span class="sc">$</span>Gender))</span></code></pre></div>
+<pre><code>## 
+##        0        1 
+## 0.507837 0.492163</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="co"># Gráfico de barras para sexo</span></span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Genero&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frecuencia&quot;</span>) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<pre><code>## Warning: The following aesthetics were dropped during statistical transformation: fill.
+## ℹ This can happen when ggplot fails to infer the correct grouping structure in
+##   the data.
+## ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+##   variable into a factor?</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="fu">skim</span>(df)  <span class="co"># resumen general de variables numéricas</span></span></code></pre></div>
+<table>
+<caption><span id="tab:unnamed-chunk-5">Table 1: </span>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td align="left">Name</td>
+<td align="left">df</td>
+</tr>
+<tr class="even">
+<td align="left">Number of rows</td>
+<td align="left">319</td>
+</tr>
+<tr class="odd">
+<td align="left">Number of columns</td>
+<td align="left">37</td>
+</tr>
+<tr class="even">
+<td align="left">_______________________</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">Column type frequency:</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">numeric</td>
+<td align="left">37</td>
+</tr>
+<tr class="odd">
+<td align="left">________________________</td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Group variables</td>
+<td align="left">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table>
+<colgroup>
+<col width="37%" />
+<col width="7%" />
+<col width="11%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="6%" />
+<col width="4%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">skim_variable</th>
+<th align="right">n_missing</th>
+<th align="right">complete_rate</th>
+<th align="right">mean</th>
+<th align="right">sd</th>
+<th align="right">p0</th>
+<th align="right">p25</th>
+<th align="right">p50</th>
+<th align="right">p75</th>
+<th align="right">p100</th>
+<th align="left">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Gallstone.Status</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.50</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">Age</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">48.07</td>
+<td align="right">12.11</td>
+<td align="right">20.00</td>
+<td align="right">38.50</td>
+<td align="right">49.00</td>
+<td align="right">56.00</td>
+<td align="right">96.00</td>
+<td align="left">▃▇▇▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Gender</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.49</td>
+<td align="right">0.50</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▇</td>
+</tr>
+<tr class="even">
+<td align="left">Comorbidity</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.34</td>
+<td align="right">0.52</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">3.00</td>
+<td align="left">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Coronary.Artery.Disease..CAD.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.04</td>
+<td align="right">0.19</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Hypothyroidism</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.03</td>
+<td align="right">0.17</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Hyperlipidemia</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.03</td>
+<td align="right">0.16</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Diabetes.Mellitus..DM.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.13</td>
+<td align="right">0.34</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Height</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">167.16</td>
+<td align="right">10.05</td>
+<td align="right">145.00</td>
+<td align="right">159.50</td>
+<td align="right">168.00</td>
+<td align="right">175.00</td>
+<td align="right">191.00</td>
+<td align="left">▃▇▇▇▂</td>
+</tr>
+<tr class="even">
+<td align="left">Weight</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">80.56</td>
+<td align="right">15.71</td>
+<td align="right">42.90</td>
+<td align="right">69.60</td>
+<td align="right">78.80</td>
+<td align="right">91.25</td>
+<td align="right">143.50</td>
+<td align="left">▂▇▅▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Body.Mass.Index..BMI.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">28.88</td>
+<td align="right">5.31</td>
+<td align="right">17.40</td>
+<td align="right">25.25</td>
+<td align="right">28.30</td>
+<td align="right">31.85</td>
+<td align="right">49.70</td>
+<td align="left">▂▇▅▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Total.Body.Water..TBW.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">40.59</td>
+<td align="right">7.93</td>
+<td align="right">13.00</td>
+<td align="right">34.20</td>
+<td align="right">39.80</td>
+<td align="right">47.00</td>
+<td align="right">66.20</td>
+<td align="left">▁▅▇▆▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Extracellular.Water..ECW.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">17.07</td>
+<td align="right">3.16</td>
+<td align="right">9.00</td>
+<td align="right">14.80</td>
+<td align="right">17.10</td>
+<td align="right">19.40</td>
+<td align="right">27.80</td>
+<td align="left">▂▆▇▃▁</td>
+</tr>
+<tr class="even">
+<td align="left">Intracellular.Water..ICW.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">23.63</td>
+<td align="right">5.35</td>
+<td align="right">13.80</td>
+<td align="right">19.30</td>
+<td align="right">23.00</td>
+<td align="right">27.55</td>
+<td align="right">57.10</td>
+<td align="left">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Extracellular.Fluid.Total.Body.Water..ECF.TBW.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">42.21</td>
+<td align="right">3.24</td>
+<td align="right">29.23</td>
+<td align="right">40.08</td>
+<td align="right">42.00</td>
+<td align="right">44.00</td>
+<td align="right">52.00</td>
+<td align="left">▁▁▇▇▁</td>
+</tr>
+<tr class="even">
+<td align="left">Lean.Mass..LM…..</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">71.64</td>
+<td align="right">8.44</td>
+<td align="right">48.99</td>
+<td align="right">65.17</td>
+<td align="right">72.11</td>
+<td align="right">77.85</td>
+<td align="right">93.67</td>
+<td align="left">▂▆▇▇▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Body.Protein.Content..Protein…..</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">15.94</td>
+<td align="right">2.33</td>
+<td align="right">5.56</td>
+<td align="right">14.46</td>
+<td align="right">15.87</td>
+<td align="right">17.43</td>
+<td align="right">24.81</td>
+<td align="left">▁▁▇▃▁</td>
+</tr>
+<tr class="even">
+<td align="left">Visceral.Fat.Rating..VFR.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9.08</td>
+<td align="right">4.33</td>
+<td align="right">1.00</td>
+<td align="right">6.00</td>
+<td align="right">9.00</td>
+<td align="right">12.00</td>
+<td align="right">31.00</td>
+<td align="left">▆▇▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Bone.Mass..BM.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2.80</td>
+<td align="right">0.51</td>
+<td align="right">1.40</td>
+<td align="right">2.40</td>
+<td align="right">2.80</td>
+<td align="right">3.20</td>
+<td align="right">4.00</td>
+<td align="left">▁▇▇▇▃</td>
+</tr>
+<tr class="even">
+<td align="left">Obesity….</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">35.85</td>
+<td align="right">109.80</td>
+<td align="right">0.40</td>
+<td align="right">13.90</td>
+<td align="right">25.60</td>
+<td align="right">41.75</td>
+<td align="right">1954.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Total.Fat.Content..TFC.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">23.49</td>
+<td align="right">9.61</td>
+<td align="right">3.10</td>
+<td align="right">17.00</td>
+<td align="right">22.60</td>
+<td align="right">28.55</td>
+<td align="right">62.50</td>
+<td align="left">▃▇▅▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Visceral.Fat.Area..VFA.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">12.17</td>
+<td align="right">5.26</td>
+<td align="right">0.90</td>
+<td align="right">8.57</td>
+<td align="right">11.59</td>
+<td align="right">15.10</td>
+<td align="right">41.00</td>
+<td align="left">▃▇▂▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Visceral.Muscle.Area..VMA…Kg.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">30.40</td>
+<td align="right">4.46</td>
+<td align="right">18.90</td>
+<td align="right">27.25</td>
+<td align="right">30.41</td>
+<td align="right">33.80</td>
+<td align="right">41.10</td>
+<td align="left">▁▅▇▆▂</td>
+</tr>
+<tr class="even">
+<td align="left">Hepatic.Fat.Accumulation..HFA.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.15</td>
+<td align="right">1.06</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">1.00</td>
+<td align="right">2.00</td>
+<td align="right">4.00</td>
+<td align="left">▇▂▇▂▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Glucose</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">108.69</td>
+<td align="right">44.85</td>
+<td align="right">69.00</td>
+<td align="right">92.00</td>
+<td align="right">98.00</td>
+<td align="right">109.00</td>
+<td align="right">575.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Total.Cholesterol..TC.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">203.50</td>
+<td align="right">45.76</td>
+<td align="right">60.00</td>
+<td align="right">172.00</td>
+<td align="right">198.00</td>
+<td align="right">233.00</td>
+<td align="right">360.00</td>
+<td align="left">▁▅▇▃▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Low.Density.Lipoprotein..LDL.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">126.65</td>
+<td align="right">38.54</td>
+<td align="right">11.00</td>
+<td align="right">100.50</td>
+<td align="right">122.00</td>
+<td align="right">151.00</td>
+<td align="right">293.00</td>
+<td align="left">▁▇▇▂▁</td>
+</tr>
+<tr class="even">
+<td align="left">High.Density.Lipoprotein..HDL.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">49.48</td>
+<td align="right">17.72</td>
+<td align="right">25.00</td>
+<td align="right">40.00</td>
+<td align="right">46.50</td>
+<td align="right">56.00</td>
+<td align="right">273.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Triglyceride</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">144.50</td>
+<td align="right">97.90</td>
+<td align="right">1.39</td>
+<td align="right">83.00</td>
+<td align="right">119.00</td>
+<td align="right">172.00</td>
+<td align="right">838.00</td>
+<td align="left">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Aspartat.Aminotransferaz..AST.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">21.68</td>
+<td align="right">16.70</td>
+<td align="right">8.00</td>
+<td align="right">15.00</td>
+<td align="right">18.00</td>
+<td align="right">23.00</td>
+<td align="right">195.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Alanin.Aminotransferaz..ALT.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">26.86</td>
+<td align="right">27.88</td>
+<td align="right">3.00</td>
+<td align="right">14.25</td>
+<td align="right">19.00</td>
+<td align="right">30.00</td>
+<td align="right">372.00</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Alkaline.Phosphatase..ALP.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">73.11</td>
+<td align="right">24.18</td>
+<td align="right">7.00</td>
+<td align="right">58.00</td>
+<td align="right">71.00</td>
+<td align="right">86.00</td>
+<td align="right">197.00</td>
+<td align="left">▁▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td align="left">Creatinine</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">0.80</td>
+<td align="right">0.18</td>
+<td align="right">0.46</td>
+<td align="right">0.65</td>
+<td align="right">0.79</td>
+<td align="right">0.92</td>
+<td align="right">1.46</td>
+<td align="left">▆▇▆▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Glomerular.Filtration.Rate..GFR.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">100.82</td>
+<td align="right">16.97</td>
+<td align="right">10.60</td>
+<td align="right">94.17</td>
+<td align="right">104.00</td>
+<td align="right">110.75</td>
+<td align="right">132.00</td>
+<td align="left">▁▁▂▇▅</td>
+</tr>
+<tr class="odd">
+<td align="left">C.Reactive.Protein..CRP.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1.85</td>
+<td align="right">4.99</td>
+<td align="right">0.00</td>
+<td align="right">0.00</td>
+<td align="right">0.22</td>
+<td align="right">1.61</td>
+<td align="right">43.40</td>
+<td align="left">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td align="left">Hemoglobin..HGB.</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">14.42</td>
+<td align="right">1.78</td>
+<td align="right">8.50</td>
+<td align="right">13.30</td>
+<td align="right">14.40</td>
+<td align="right">15.70</td>
+<td align="right">18.80</td>
+<td align="left">▁▃▇▇▂</td>
+</tr>
+<tr class="odd">
+<td align="left">Vitamin.D</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">21.40</td>
+<td align="right">9.98</td>
+<td align="right">3.50</td>
+<td align="right">13.25</td>
+<td align="right">22.00</td>
+<td align="right">28.06</td>
+<td align="right">53.10</td>
+<td align="left">▆▇▇▂▁</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="co"># Histograma de edad</span></span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">&quot;#F8766D&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Edad&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+</div>
+<div id="análisis-bivariado" class="section level2 hasAnchor" number="4">
+<h2><span class="header-section-number">4</span> Análisis bivariado<a href="#análisis-bivariado" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>###Categórica vs Categórica (sexo vs diagnosis)</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="co"># Tabla cruzada</span></span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>tabla <span class="ot">&lt;-</span> <span class="fu">table</span>(df<span class="sc">$</span>Gender, df<span class="sc">$</span>Gallstone.Status)</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>tabla</span></code></pre></div>
+<pre><code>##    
+##      0  1
+##   0 94 68
+##   1 67 90</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="co"># Test chi-cuadrado</span></span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a><span class="fu">chisq.test</span>(tabla)</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+## 
+## data:  tabla
+## X-squared = 6.9132, df = 1, p-value = 0.008556</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" tabindex="-1"></a><span class="co"># Gráfico de barras apiladas</span></span>
+<span id="cb32-2"><a href="#cb32-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> <span class="fu">factor</span>(Gallstone.Status, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Sin calculos&quot;</span>, <span class="st">&quot;Con calculos&quot;</span>)))) <span class="sc">+</span></span>
+<span id="cb32-3"><a href="#cb32-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">&quot;fill&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Proporcion de diagnostico segun sexo&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Porcentaje&quot;</span>, <span class="at">fill =</span> <span class="st">&quot;Diagnostico&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<div id="numérica-vs-categórica-edad-vs-diagnosis" class="section level3 hasAnchor" number="4.1">
+<h3><span class="header-section-number">4.1</span> Numérica vs Categórica (edad vs diagnosis)<a href="#numérica-vs-categórica-edad-vs-diagnosis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="co"># Boxplot</span></span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(Gallstone.Status, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Sin calculos&quot;</span>, <span class="st">&quot;Con calculos&quot;</span>)), <span class="at">y =</span> Age, <span class="at">fill =</span> <span class="fu">factor</span>(Gallstone.Status))) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribucion de edad segun diagnostico&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Diagnostico&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Edad&quot;</span>)</span></code></pre></div>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="co"># Test de diferencias (t-test o Wilcoxon si no normal)</span></span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a><span class="fu">t.test</span>(Age <span class="sc">~</span> Gallstone.Status, <span class="at">data =</span> df)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  Age by Gallstone.Status
+## t = -0.64831, df = 311.97, p-value = 0.5173
+## alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+## 95 percent confidence interval:
+##  -3.547193  1.788957
+## sample estimates:
+## mean in group 0 mean in group 1 
+##        47.63354        48.51266</code></pre>
+</div>
+</div>
+<div id="conclusiones" class="section level2 hasAnchor" number="5">
+<h2><span class="header-section-number">5</span> Conclusiones<a href="#conclusiones" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Se observa que el conjunto está equilibrado entre pacientes con y sin diagnóstico de cálculos.</p>
+<p>La variable edad presenta diferencias entre los grupos, lo cual puede indicar una asociación.</p>
+<p>Sexo también muestra variación en proporción.</p>
+<p>Algunas variables numéricas están fuertemente correlacionadas, lo cual fue tratado con la eliminación de redundantes.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/rstudio/bookdown-demo/edit/master/%s",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": false,
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

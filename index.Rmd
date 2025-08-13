@@ -1,0 +1,207 @@
+--- 
+author: "Angel Mozo, Paula Gomez, Camilo Gonzalez"
+title: "EDA - Cálculos Biliares"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(readr)
+library(dplyr)
+library(psych)
+library(corrplot)
+library(skimr)
+library(scales)
+```
+
+## **Contexto del conjunto de datos de enfermedad de cálculos biliares (Gallstone)**
+Este conjunto de datos corresponde a un estudio clínico llevada a cabo entre junio de 2022 y junio de 2023, con la finalidad de detectar factores asociados a la presencia de colelitiasis (enfermedad de cálculos biliares) en pacientes que asistieron al centro médico. La recolección de datos variables clínicas, demográficas, fisiológicas y bioquímicas, con el objetivo de desarrollar modelos capaces de predecir la presencia de esta patología. 
+
+El conjunto incluye 319 observaciones y 38 variables, que abarcan información como la edad, el género, el índice de masa corporal (IMC), mediciones de bioimpedancia, resultados de laboratorio (colesterol, glucosa, triglicéridos, etc.), y niveles de vitamina D, entre otros aspectos. Además se incorpora una variable binaria que señala si el paciente fue o no diagnosticado con cálculos biliares.
+
+A continuación resaltamos las variables con mayor relevancia: 
+
+* **age**: Edad del paciente (en años).
+* **sex**: Sexo del paciente (masculino/femenino).
+* **height, weight**: Altura (cm) y peso (kg).
+* **BMI**: Índice de masa corporal.
+* **fat_mass, muscle_mass**: Masa grasa y masa muscular.
+* **visceral_fat_area**: Área de grasa visceral.
+* **total_body_water**: Porcentaje de agua corporal.
+* **protein**: Porcentaje de proteína corporal.
+* **glucose**: Nivel de glucosa.
+* **cholesterol_total, HDL, LDL, triglycerides**: Perfil lipídico.
+* **AST, ALT, ALP**: Enzimas hepáticas.
+* **vitamin_D**: Nivel de vitamina D.
+* **creatinine, eGFR**: Función renal.
+* **CRP**: Proteína C-reactiva.
+* **comorbidity**: Presencia de enfermedades adicionales.
+* **diagnosis**: Variable objetivo (presencia de cálculos biliares: 1 = sí, 0 = no).
+
+
+
+El objetivo principal es analizar qué variables están vinculadas con la presencia de cálculos biliares (diagnosis), con el fin de elaborar modelos predictivos que apoyen el diagnóstico clínico precoz. Este análisis exploratorio de datos permitirá entender la distribución de las variables,  la identificación de posibles patrones y con ello la relación entre la condición de los pacientes y el diagnóstico de colelitiasis.
+
+Iniciemos realizando un análisis exploratorio de datos.
+
+## **Extracción, transformación y carga (ETL)**
+
+
+```{r }
+url <- "https://raw.githubusercontent.com/apaulag24/Metodos/refs/heads/main/Gallstone.csv"
+
+datos <- read.csv(url, sep = ",", stringsAsFactors = TRUE)
+
+head(datos,n=5)
+dim(datos)
+colnames(datos) #galstone status no es una variable
+str(datos)
+
+```
+Notamos que los datos fueron cargados correctamente.
+
+* Considerando que hay variables que se derivan de otras primarias, para facilitar el análisis exploratorio y evitar redundancias o ruido en el modelo, se eliminarán las variables que presenten correlación numérica positiva mayor de 0.85.*
+
+
+
+## Análisis de correlación de variables numéricas
+
+```{r correlacion, warning=FALSE, message=FALSE}
+# Filtrado de variables numéricas
+datos_num <- datos[sapply(datos, is.numeric)]
+datos_num <- na.omit(datos_num)
+
+# Subconjunto para análisis de correlación
+subconjunto <- datos_num[, c("Body.Mass.Index..BMI.",
+                             "Total.Body.Fat.Ratio..TBFR.....",
+                             "Weight",
+                             "Muscle.Mass..MM.",
+                             "Total.Body.Water..TBW.",
+                             "Body.Protein.Content..Protein.....")]
+
+# Visualización de correlaciones
+pairs.panels(subconjunto,
+             method = "pearson",
+             hist.col = "#00BFC4",
+             density = TRUE,
+             ellipses = TRUE)
+
+
+```
+
+```{r}
+# Matriz de correlación completa
+cor_matrix <- cor(datos_num)
+
+# Buscar correlaciones fuertes (r > 0.85, excluyendo la diagonal)
+high_cor <- which(abs(cor_matrix) > 0.85 & abs(cor_matrix) < 1, arr.ind = TRUE)
+
+cat("Pares de variables con correlación alta (r > 0.85):\n\n")
+for (i in seq_len(nrow(high_cor))) {
+  var1 <- rownames(cor_matrix)[high_cor[i, 1]]
+  var2 <- colnames(cor_matrix)[high_cor[i, 2]]
+  r <- round(cor_matrix[var1, var2], 2)
+  cat(paste0("- ", var1, " vs ", var2, ": r = ", r, "\n"))
+}
+```
+
+A partir de las correlaciones encontradas, recomendamos eliminar algunas variables:
+
+Muscle.Mass..MM. y Total.Body.Fat.Ratio..TBFR..... presentan alta colinealidad con otras variables.
+
+Weight y Total.Body.Water..TBW. también se correlacionan fuerte con otras.
+
+
+```{r eliminar_variables}
+# Eliminación de variables redundantes
+
+
+
+df <- datos %>%
+  select(-Muscle.Mass..MM.,
+         -Total.Body.Fat.Ratio..TBFR.....)
+```
+
+```{r}
+# Frecuencia absoluta y relativa de diagnosis
+table(df$diagnosis)
+prop.table(table(df$diagnosis))
+
+
+
+# Gráfico de barras
+ggplot(df, aes(x = factor(Gallstone.Status, labels = c("Sin calculos", "Con calculos")))) +
+  geom_bar(fill = "#00BFC4") +
+  labs(x = "Diagnostico", y = "Frecuencia", title = "Distribucion de diagnostico")
+
+```
+
+```{r}
+# Ejemplo con sexo
+table(df$Gender)
+prop.table(table(df$Gender))
+
+# Gráfico de barras para sexo
+ggplot(df, aes(x = Gender, fill = Gender)) +
+  geom_bar() +
+  labs(title = "Genero", y = "Frecuencia") +
+  theme_minimal()
+
+```
+
+```{r}
+skim(df)  # resumen general de variables numéricas
+
+# Histograma de edad
+ggplot(df, aes(x = Age)) +
+  geom_histogram(bins = 30, fill = "#F8766D", color = "black") +
+  labs(title = "Edad")
+
+```
+
+## Análisis bivariado 
+
+###Categórica vs Categórica (sexo vs diagnosis)
+
+```{r}
+# Tabla cruzada
+tabla <- table(df$Gender, df$Gallstone.Status)
+tabla
+
+# Test chi-cuadrado
+chisq.test(tabla)
+
+# Gráfico de barras apiladas
+ggplot(df, aes(x = Gender, fill = factor(Gallstone.Status, labels = c("Sin calculos", "Con calculos")))) +
+  geom_bar(position = "fill") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Proporcion de diagnostico segun sexo", y = "Porcentaje", fill = "Diagnostico")
+
+```
+
+### Numérica vs Categórica (edad vs diagnosis)
+
+```{r}
+# Boxplot
+ggplot(df, aes(x = factor(Gallstone.Status, labels = c("Sin calculos", "Con calculos")), y = Age, fill = factor(Gallstone.Status))) +
+  geom_boxplot() +
+  labs(title = "Distribucion de edad segun diagnostico", x = "Diagnostico", y = "Edad")
+
+# Test de diferencias (t-test o Wilcoxon si no normal)
+t.test(Age ~ Gallstone.Status, data = df)
+
+```
+
+## Conclusiones
+
+Se observa que el conjunto está equilibrado entre pacientes con y sin diagnóstico de cálculos.
+
+La variable edad presenta diferencias entre los grupos, lo cual puede indicar una asociación.
+
+Sexo también muestra variación en proporción.
+
+Algunas variables numéricas están fuertemente correlacionadas, lo cual fue tratado con la eliminación de redundantes.
+
+
+
